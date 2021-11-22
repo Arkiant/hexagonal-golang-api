@@ -1,0 +1,7 @@
+version: "3.1"
+services:
+  ddd-golang-framework:
+    build: .
+    restart: always
+    environment:
+      - ENV=${ENV}
