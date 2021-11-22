@@ -3,5 +3,8 @@ services:
   ddd-golang-framework:
     build: .
     restart: always
+    ports:
+      - 8080:8080
     environment:
       - ENV=${ENV}
+      - GIN_MODE=release

@@ -4,16 +4,22 @@ WORKDIR /app
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo /app/ddd-golang-framework
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo /app/cmd/api
 
 FROM alpine:latest 
 
 RUN apk --no-cache add ca-certificates
 
+WORKDIR /app
+
+COPY --from=builder /app/.env .
+
 WORKDIR /
 
 ENV ENV=""
 
-COPY --from=builder /app/ddd-golang-framework .
+EXPOSE 8080
 
-CMD ["./ddd-golang-framework"]
+COPY --from=builder /app/api .
+
+CMD ["./api"]
