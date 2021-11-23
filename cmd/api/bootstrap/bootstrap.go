@@ -52,9 +52,9 @@ func Run() error {
 	return srv.Run(ctx)
 }
 
-func getEnvironment(string) server.Environment {
+func getEnvironment(environment string) server.Environment {
 	var env server.Environment
-	switch os.Getenv(ENV) {
+	switch environment {
 	case string(server.DEVELOPMENT):
 		env = server.DEVELOPMENT
 	case string(server.STAGING):
