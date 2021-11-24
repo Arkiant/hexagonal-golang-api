@@ -55,7 +55,7 @@ func New(ctx context.Context, host string, port uint, shutdownTimeout time.Durat
 }
 
 func (s *Server) registerRoutes() {
-	if s.hasRoutes() {
+	if !s.hasRoutes() {
 		panic("no routes found")
 	}
 
