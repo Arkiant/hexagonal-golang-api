@@ -3,7 +3,7 @@ package inmemory
 import (
 	"context"
 
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/query"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
 )
 
 // QueryBus is an in-memory implementation of the command.Bus.

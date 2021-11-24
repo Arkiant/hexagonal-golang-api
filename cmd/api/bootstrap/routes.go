@@ -1,10 +1,10 @@
 package bootstrap
 
 import (
-	"github.com/arkiant/ddd-golang-framework/internal/platform/server/handler"
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/command"
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/query"
-	"github.com/arkiant/ddd-golang-framework/kit/http/server"
+	"github.com/arkiant/hexagonal-golang-api/internal/platform/server/handler"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/command"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
+	"github.com/arkiant/hexagonal-golang-api/kit/http/server"
 )
 
 func routes(queryBus query.Bus, commandBus command.Bus) []server.Route {

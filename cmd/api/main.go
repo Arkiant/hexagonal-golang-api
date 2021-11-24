@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/arkiant/ddd-golang-framework/cmd/api/bootstrap"
+	"github.com/arkiant/hexagonal-golang-api/cmd/api/bootstrap"
 )
 
 func main() {

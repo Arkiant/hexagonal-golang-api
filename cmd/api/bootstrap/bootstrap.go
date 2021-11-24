@@ -7,9 +7,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/arkiant/ddd-golang-framework/internal/ping"
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/bus/inmemory"
-	"github.com/arkiant/ddd-golang-framework/kit/http/server"
+	"github.com/arkiant/hexagonal-golang-api/internal/ping"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/bus/inmemory"
+	"github.com/arkiant/hexagonal-golang-api/kit/http/server"
 	"github.com/joho/godotenv"
 )
 

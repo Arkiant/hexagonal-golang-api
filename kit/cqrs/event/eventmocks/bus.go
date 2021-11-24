@@ -5,7 +5,7 @@ package eventmocks
 import (
 	context "context"
 
-	event "github.com/arkiant/ddd-golang-framework/kit/cqrs/event"
+	event "github.com/arkiant/hexagonal-golang-api/kit/cqrs/event"
 	mock "github.com/stretchr/testify/mock"
 )
 

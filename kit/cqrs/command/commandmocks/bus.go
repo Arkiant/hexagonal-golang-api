@@ -5,7 +5,7 @@ package commandmocks
 import (
 	context "context"
 
-	command "github.com/arkiant/ddd-golang-framework/kit/cqrs/command"
+	command "github.com/arkiant/hexagonal-golang-api/kit/cqrs/command"
 
 	mock "github.com/stretchr/testify/mock"
 )

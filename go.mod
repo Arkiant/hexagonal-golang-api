@@ -1,4 +1,4 @@
-module github.com/arkiant/ddd-golang-framework
+module github.com/arkiant/hexagonal-golang-api
 
 go 1.17
 

@@ -3,8 +3,8 @@ package handler
 import (
 	"net/http"
 
-	"github.com/arkiant/ddd-golang-framework/internal/ping"
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/query"
+	"github.com/arkiant/hexagonal-golang-api/internal/ping"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
 	"github.com/gin-gonic/gin"
 )
 

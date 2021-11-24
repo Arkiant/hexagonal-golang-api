@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/query"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
 )
 
 const PingQueryType query.Type = "query.ping"

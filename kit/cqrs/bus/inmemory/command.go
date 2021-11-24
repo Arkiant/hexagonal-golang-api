@@ -3,7 +3,7 @@ package inmemory
 import (
 	"context"
 
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/command"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/command"
 )
 
 // CommandBus is an in-memory implementation of the command.Bus.

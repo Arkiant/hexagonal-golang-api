@@ -3,7 +3,7 @@ package inmemory
 import (
 	"context"
 
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/event"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/event"
 )
 
 // EventBus is an in-memory implementation of the event.Bus.

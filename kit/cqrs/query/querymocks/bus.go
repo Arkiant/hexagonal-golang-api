@@ -5,7 +5,7 @@ package querymocks
 import (
 	context "context"
 
-	query "github.com/arkiant/ddd-golang-framework/kit/cqrs/query"
+	query "github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
 	mock "github.com/stretchr/testify/mock"
 )
 

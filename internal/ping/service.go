@@ -3,7 +3,7 @@ package ping
 import (
 	"context"
 
-	"github.com/arkiant/ddd-golang-framework/kit/cqrs/event"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/event"
 )
 
 type PingService struct {
