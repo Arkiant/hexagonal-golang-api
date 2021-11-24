@@ -55,6 +55,10 @@ func New(ctx context.Context, host string, port uint, shutdownTimeout time.Durat
 }
 
 func (s *Server) registerRoutes() {
+	if s.hasRoutes() {
+		panic("no routes found")
+	}
+
 	for _, route := range s.routes {
 		s.engine.Handle(route.method, route.endpoint, route.handler)
 	}
@@ -79,6 +83,10 @@ func (s *Server) Run(ctx context.Context) error {
 	defer cancel()
 
 	return srv.Shutdown(ctxShutDown)
+}
+
+func (s *Server) hasRoutes() bool {
+	return len(s.routes) > 0
 }
 
 func serverContext(ctx context.Context) context.Context {
