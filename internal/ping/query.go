@@ -34,6 +34,6 @@ func (f PingQueryHandler) Handle(ctx context.Context, query query.Query) (interf
 		return "", errors.New("unexpected query")
 	}
 
-	return f.service.GetPing(ctx)
+	return f.service.Ping(ctx)
 
 }
