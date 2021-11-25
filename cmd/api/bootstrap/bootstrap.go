@@ -44,7 +44,9 @@ func Run() error {
 		return err
 	}
 
-	pingService := ping.NewPingService(eventBus)
+	_ = eventBus
+
+	pingService := ping.NewPingService()
 	pingQueryHandler := ping.NewPingQueryHandler(pingService)
 	queryBus.Register(ping.PingQueryType, pingQueryHandler)
 
