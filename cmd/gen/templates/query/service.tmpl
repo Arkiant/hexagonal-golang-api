@@ -1,0 +1,16 @@
+package {{.NameLower}}
+
+import (
+	"context"
+)
+
+type {{.Name}}Service struct {
+}
+
+func New{{.Name}}Service() {{.Name}}Service {
+	return {{.Name}}Service{}
+}
+
+func (f {{.Name}}Service) {{.Name}}(ctx context.Context) (interface{}, error) {
+	return "PONG", nil
+}

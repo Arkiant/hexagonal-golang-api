@@ -1,0 +1,19 @@
+package {{.NameLower}}
+
+import (
+	"context"
+
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/event"
+)
+
+type {{.Name}}Service struct {
+	eventBus event.Bus
+}
+
+func New{{.Name}}Service(eventBus event.Bus) {{.Name}}Service {
+	return {{.Name}}Service{eventBus: eventBus}
+}
+
+func (f {{.Name}}Service) {{.Name}}(ctx context.Context) (error) {
+	return nil
+}

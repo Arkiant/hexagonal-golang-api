@@ -1,0 +1,39 @@
+package {{.NameLower}}
+
+import (
+	"context"
+	"errors"
+
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
+)
+
+const {{.Name}}QueryType query.Type = "query.{{.NameLower}}"
+
+type {{.Name}}Query struct{}
+
+func New{{.Name}}Query() {{.Name}}Query {
+	return {{.Name}}Query{}
+}
+
+func (f {{.Name}}Query) Type() query.Type {
+	return {{.Name}}QueryType
+}
+
+type {{.Name}}QueryHandler struct {
+	service {{.Name}}Service
+}
+
+func New{{.Name}}QueryHandler(service {{.Name}}Service) {{.Name}}QueryHandler {
+	return {{.Name}}QueryHandler{service: service}
+}
+
+func (f {{.Name}}QueryHandler) Handle(ctx context.Context, query query.Query) (interface{}, error) {
+
+	_, ok := query.({{.Name}}Query)
+	if !ok {
+		return "", errors.New("unexpected query")
+	}
+
+	return f.service.{{.Name}}(ctx)
+
+}

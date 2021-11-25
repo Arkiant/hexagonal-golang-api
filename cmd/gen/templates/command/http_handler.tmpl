@@ -1,0 +1,21 @@
+package handler
+
+import (
+	"net/http"
+
+	"github.com/arkiant/hexagonal-golang-api/internal/{{.NameLower}}"
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/command"
+	"github.com/gin-gonic/gin"
+)
+
+func {{.Name}}Handler(commandBus command.Bus) gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		err := commandBus.Dispatch(ctx, {{.NameLower}}.New{{.Name}}Command())
+		if err != nil {
+			ctx.JSON(http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		ctx.JSON(http.StatusOK, nil)
+	}
+}
