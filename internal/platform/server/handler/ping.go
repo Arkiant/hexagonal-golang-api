@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/arkiant/hexagonal-golang-api/internal/ping"
+	"github.com/arkiant/hexagonal-golang-api/internal/platform/server"
 	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
 	"github.com/gin-gonic/gin"
 )
@@ -20,6 +21,6 @@ func PingHandler(queryBus query.Bus) gin.HandlerFunc {
 			return
 		}
 
-		ctx.JSON(http.StatusOK, ResponsePong{Response: response})
+		ctx.JSON(http.StatusOK, server.Response{Data: response})
 	}
 }
