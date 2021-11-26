@@ -1,4 +1,4 @@
-package handler
+package ping
 
 import (
 	"net/http"
@@ -38,5 +38,4 @@ func TestPing(t *testing.T) {
 		assert.Equal(t, http.StatusOK, rec.Code)
 		assert.JSONEq(t, `{"data":"PONG"}`, rec.Body.String())
 	})
-
 }

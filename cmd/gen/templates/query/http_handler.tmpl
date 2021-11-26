@@ -1,9 +1,9 @@
-package handler
+package {{.NameLower}}
 
 import (
 	"net/http"
 
-	"github.com/arkiant/hexagonal-golang-api/internal/{{.NameLower}}"
+	"github.com/arkiant/hexagonal-golang-api/internal/{{.BC}}/{{.NameLower}}"
 	"github.com/arkiant/hexagonal-golang-api/internal/platform/server"
 	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
 	"github.com/gin-gonic/gin"
