@@ -22,7 +22,7 @@ func TestPing(t *testing.T) {
 
 	gin.SetMode(gin.TestMode)
 	r := gin.New()
-	r.GET("/ping", PingHandler(queryBus))
+	r.GET("/ping", Handler(queryBus))
 
 	t.Run("it returns 200", func(t *testing.T) {
 

@@ -4,13 +4,13 @@ import (
 	"context"
 )
 
-type {{.Name}}Service struct {
+type Service struct {
 }
 
-func New{{.Name}}Service() {{.Name}}Service {
-	return {{.Name}}Service{}
+func NewService() Service {
+	return Service{}
 }
 
-func (f {{.Name}}Service) {{.Name}}(ctx context.Context) (interface{}, error) {
+func (f Service) {{.Name}}(ctx context.Context) (interface{}, error) {
 	panic("not implemented")
 }

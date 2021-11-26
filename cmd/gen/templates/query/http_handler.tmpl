@@ -9,9 +9,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func {{.Name}}Handler(queryBus query.Bus) gin.HandlerFunc {
+func Handler(queryBus query.Bus) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		response, err := queryBus.Dispatch(ctx, {{.NameLower}}.New{{.Name}}Query())
+		response, err := queryBus.Dispatch(ctx, {{.NameLower}}.NewQuery())
 		if err != nil {
 			ctx.JSON(http.StatusInternalServerError, err.Error())
 			return

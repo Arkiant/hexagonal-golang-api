@@ -9,6 +9,6 @@ import (
 
 func routes(queryBus query.Bus, commandBus command.Bus) []server.Route {
 	return []server.Route{
-		server.NewRoute("GET", "ping", ping.PingHandler(queryBus)),
+		server.NewRoute("GET", "ping", ping.Handler(queryBus)),
 	}
 }
