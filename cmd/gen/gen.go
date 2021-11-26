@@ -63,6 +63,10 @@ func main() {
 	createFolder(service, routeHandler)
 
 	for _, file := range files {
+		if fileExists(filesToCreate[file]) {
+			continue
+		}
+
 		f, err := os.Create(filesToCreate[file])
 		defer func() {
 			err := f.Close()
@@ -70,19 +74,25 @@ func main() {
 				fmt.Println("error closing file")
 			}
 		}()
+
 		if err != nil {
 			panic(fmt.Sprintf("error: %w", err))
 		}
+
 		t := template.Must(template.ParseFiles(fmt.Sprintf("cmd/gen/templates/%s/%s", selectedType, file)))
 		t.Execute(f, d)
 	}
 }
 
+func fileExists(file string) bool {
+	_, err := os.Stat(file)
+	return !errors.Is(err, os.ErrNotExist)
+}
+
 func createFolder(folder string, f func(string) string) {
 	dirName := f(folder)
-	_, err := os.Stat(dirName)
-	if errors.Is(err, os.ErrNotExist) {
-		err := os.Mkdir(f(folder), 0755)
+	if !fileExists(dirName) {
+		err := os.Mkdir(dirName, 0755)
 		if err != nil {
 			panic(fmt.Sprintf("can't create the directory error: %s", err.Error()))
 		}
