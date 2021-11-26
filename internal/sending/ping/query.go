@@ -7,29 +7,29 @@ import (
 	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/query"
 )
 
-const PingQueryType query.Type = "query.ping"
+const QueryType query.Type = "query.sending.ping"
 
-type PingQuery struct{}
+type Query struct{}
 
-func NewPingQuery() PingQuery {
-	return PingQuery{}
+func NewPingQuery() Query {
+	return Query{}
 }
 
-func (f PingQuery) Type() query.Type {
-	return PingQueryType
+func (f Query) Type() query.Type {
+	return QueryType
 }
 
-type PingQueryHandler struct {
-	service PingService
+type QueryHandler struct {
+	service Service
 }
 
-func NewPingQueryHandler(service PingService) PingQueryHandler {
-	return PingQueryHandler{service: service}
+func NewQueryHandler(service Service) QueryHandler {
+	return QueryHandler{service: service}
 }
 
-func (f PingQueryHandler) Handle(ctx context.Context, query query.Query) (interface{}, error) {
+func (f QueryHandler) Handle(ctx context.Context, query query.Query) (interface{}, error) {
 
-	_, ok := query.(PingQuery)
+	_, ok := query.(Query)
 	if !ok {
 		return "", errors.New("unexpected query")
 	}

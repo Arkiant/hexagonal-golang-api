@@ -17,7 +17,7 @@ func TestPing(t *testing.T) {
 	queryBus.On(
 		"Dispatch",
 		mock.Anything,
-		mock.AnythingOfType("ping.PingQuery"),
+		mock.AnythingOfType("ping.Query"),
 	).Return("PONG", nil)
 
 	gin.SetMode(gin.TestMode)

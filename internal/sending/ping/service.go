@@ -4,13 +4,13 @@ import (
 	"context"
 )
 
-type PingService struct {
+type Service struct {
 }
 
-func NewPingService() PingService {
-	return PingService{}
+func NewService() Service {
+	return Service{}
 }
 
-func (f PingService) Ping(ctx context.Context) (interface{}, error) {
+func (f Service) Ping(ctx context.Context) (interface{}, error) {
 	return "PONG", nil
 }

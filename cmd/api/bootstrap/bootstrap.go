@@ -46,7 +46,7 @@ func Run() error {
 
 	_ = eventBus
 
-	queryBus.Register(ping.PingQueryType, ping.NewPingQueryHandler(ping.NewPingService()))
+	queryBus.Register(ping.QueryType, ping.NewQueryHandler(ping.NewService()))
 
 	ctx, srv := server.New(context.Background(), host, port, shutdownTimeout, getEnvironment(os.Getenv(ENV)), routes(queryBus, commandBus))
 	return srv.Run(ctx)
