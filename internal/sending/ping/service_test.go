@@ -8,7 +8,7 @@ import (
 )
 
 func TestPing(t *testing.T) {
-	pingService := NewPingService()
+	pingService := NewService()
 	res, err := pingService.Ping(context.Background())
 	assert.NoError(t, err)
 	assert.Equal(t, "PONG", res)

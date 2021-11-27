@@ -1,0 +1,39 @@
+package {{.NameLower}}
+
+import (
+	"context"
+	"errors"
+
+	"github.com/arkiant/hexagonal-golang-api/kit/cqrs/command"
+)
+
+const CommandType command.Type = "command.{{.BC}}.{{.NameLower}}"
+
+type Command struct{}
+
+func NewCommand() Command {
+	return Command{}
+}
+
+func (f Command) Type() command.Type {
+	return CommandType
+}
+
+type CommandHandler struct {
+	service Service
+}
+
+func New{{.Name}}CommandHandler(service Service) CommandHandler {
+	return CommandHandler{service: service}
+}
+
+func (f CommandHandler) Handle(ctx context.Context, command command.Command) (error) {
+
+	_, ok := command.(Command)
+	if !ok {
+		return errors.New("unexpected command")
+	}
+
+	return f.service.{{.Name}}(ctx)
+
+}

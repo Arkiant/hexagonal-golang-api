@@ -1,0 +1,16 @@
+package {{.NameLower}}
+
+import (
+	"context"
+)
+
+type Service struct {
+}
+
+func NewService() Service {
+	return Service{}
+}
+
+func (f Service) {{.Name}}(ctx context.Context) (interface{}, error) {
+	panic("not implemented")
+}

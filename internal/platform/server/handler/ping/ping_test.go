@@ -1,4 +1,4 @@
-package handler
+package ping
 
 import (
 	"net/http"
@@ -17,12 +17,12 @@ func TestPing(t *testing.T) {
 	queryBus.On(
 		"Dispatch",
 		mock.Anything,
-		mock.AnythingOfType("ping.PingQuery"),
+		mock.AnythingOfType("ping.Query"),
 	).Return("PONG", nil)
 
 	gin.SetMode(gin.TestMode)
 	r := gin.New()
-	r.GET("/ping", PingHandler(queryBus))
+	r.GET("/ping", Handler(queryBus))
 
 	t.Run("it returns 200", func(t *testing.T) {
 
@@ -38,5 +38,4 @@ func TestPing(t *testing.T) {
 		assert.Equal(t, http.StatusOK, rec.Code)
 		assert.JSONEq(t, `{"data":"PONG"}`, rec.Body.String())
 	})
-
 }
